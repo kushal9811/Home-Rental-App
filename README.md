@@ -1,5 +1,7 @@
 # RentRite
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-blue)](https://home-rental-app-nine.vercel.app/)
+
 ## Project Overview
 
 I built **RentRite**, a full-stack home rental application leveraging the MERN (MongoDB, Express.js, React, Node.js) stack with Vite for frontend bundling. It allows hosts to list properties, and guests to browse, book, and manage their stays. Core features include user authentication, dynamic listings, wishlist, bookings calendar, and image uploads.
