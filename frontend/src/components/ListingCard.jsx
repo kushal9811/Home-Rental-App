@@ -4,6 +4,9 @@ import { FaArrowLeft, FaArrowRight, FaHeart } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { setWishList } from "../redux/slice/userSlice"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const UPLOADS_BASE = API_BASE.replace("/api", "");
+
 const ListingCard = ({
   listingId,
   creator,
@@ -51,7 +54,7 @@ const ListingCard = ({
   const patchWishList = async () => {
     if (user?._id !== creator._id) {
       const response = await fetch(
-        `http://localhost:3000/api/user/${user?._id}/${listingId}`,
+        `${API_BASE}/user/${user?._id}/${listingId}`,
         {
           method: "PATCH",
           headers: {
@@ -86,7 +89,7 @@ const ListingCard = ({
               key={index}
             >
               <img
-                src={`http://localhost:3000/${photo?.replace("public", "")}`}
+                src={`${UPLOADS_BASE}/${photo?.replace("public", "")}`}
                 alt=""
                 className="w-full h-full brightness-90"
               />

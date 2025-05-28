@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setListings } from "../redux/slice/listingSlice"
 import ListingCard from "../components/ListingCard"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const SearchPage = () => {
   const { search } = useParams()
 
@@ -17,7 +19,7 @@ const SearchPage = () => {
   const getSearchListings = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/listing/search/${search}`,
+        `${API_BASE}/listing/search/${search}`,
         { method: "GET" }
       )
 

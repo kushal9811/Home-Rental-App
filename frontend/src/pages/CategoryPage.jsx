@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setListings } from "../redux/slice/listingSlice"
 import ListingCard from "../components/ListingCard"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const CategoryPage = () => {
   const { category } = useParams()
 
@@ -17,7 +19,7 @@ const CategoryPage = () => {
   const getListingsByCategory = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/listing?category=${category}`,
+        `${API_BASE}/listing?category=${category}`,
         {
           method: "GET",
         }

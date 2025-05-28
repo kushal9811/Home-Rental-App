@@ -8,6 +8,9 @@ import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRange } from "react-date-range"
 import { useSelector } from "react-redux"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const UPLOADS_BASE = API_BASE.replace("/api", "");
+
 const ListingDetails = () => {
   const { listingId } = useParams()
   const [listing, setListing] = useState(null)
@@ -17,7 +20,7 @@ const ListingDetails = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/listing/${listingId}`,
+        `${API_BASE}/listing/${listingId}`,
         {
           method: "GET",
         }
@@ -71,7 +74,7 @@ const ListingDetails = () => {
         totalPrice: listing.price * dayCount,
       }
 
-      const response = await fetch("http://localhost:3000/api/booking/create", {
+      const response = await fetch(`${API_BASE}/booking/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +104,7 @@ const ListingDetails = () => {
         <div className="flex flex-wrap gap-2.5 my-5">
           {listing?.listingPhotoPaths?.map((item, index) => (
             <img
-              src={`http://localhost:3000/${item.replace("public", "")}`}
+              src={`${UPLOADS_BASE}/${item.replace("public", "")}`}
               alt="listing photo"
               className="max-h-[280px] max-w-[280px] object-cover"
               key={index}
@@ -123,7 +126,7 @@ const ListingDetails = () => {
 
         <div className="flex gap-5 items-center">
           <img
-            src={`http://localhost:3000/${listing?.creator?.profileImagePath.replace(
+            src={`${UPLOADS_BASE}/${listing?.creator?.profileImagePath.replace(
               "public",
               ""
             )}`}

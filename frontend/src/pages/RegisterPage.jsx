@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import uploadProfilePic from "../assets/upload.png"
 import { Link, useNavigate } from "react-router-dom"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -45,7 +47,7 @@ const RegisterPage = () => {
         registerForm.append(key, formData[key])
       }
 
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const response = await fetch(`${API_BASE}/auth/register`, {
         method: "POST",
         body: registerForm,
       })

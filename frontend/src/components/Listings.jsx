@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setListings } from "../redux/slice/listingSlice"
 import ListingCard from "./ListingCard"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const Listings = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
@@ -17,8 +19,8 @@ const Listings = () => {
     try {
       const res = await fetch(
         selectedCategory !== "All"
-          ? `http://localhost:3000/api/listing?category=${selectedCategory}`
-          : "http://localhost:3000/api/listing",
+          ? `${API_BASE}/listing?category=${selectedCategory}`
+          : `${API_BASE}/listing`,
         {
           method: "GET",
         }

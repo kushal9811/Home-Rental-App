@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setPropertyList } from "../redux/slice/userSlice"
 import ListingCard from "../components/ListingCard"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const PropertyList = () => {
   const user = useSelector((state) => state.user.user)
 
@@ -16,7 +18,7 @@ const PropertyList = () => {
   const getPropertyList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/user/${user._id}/properties`,
+        `${API_BASE}/user/${user._id}/properties`,
         {
           method: "GET",
         }

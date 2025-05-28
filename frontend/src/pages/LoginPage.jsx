@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { setLogin } from "../redux/slice/userSlice"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+console.log("API_BASE is:", API_BASE);
+
 const LoginPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -14,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const response = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

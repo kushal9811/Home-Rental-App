@@ -8,6 +8,8 @@ import { BiTrash } from "react-icons/bi"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const CreateListing = () => {
   const [category, setCategory] = useState("")
   const [type, setType] = useState("")
@@ -120,7 +122,7 @@ const CreateListing = () => {
         listingForm.append("listingPhotos", photo)
       })
 
-      const res = await fetch("http://localhost:3000/api/listing/create", {
+      const res = await fetch(`${API_BASE}/listing/create`, {
         method: "POST",
         body: listingForm,
       })

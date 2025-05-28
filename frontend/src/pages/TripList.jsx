@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setTripList } from "../redux/slice/userSlice"
 import ListingCard from "../components/ListingCard"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 const TripList = () => {
   const userId = useSelector((state) => state?.user?.user?._id)
   //   console.log(userId)
@@ -17,7 +19,7 @@ const TripList = () => {
   const getTripList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/user/${userId}/trips`,
+        `${API_BASE}/user/${userId}/trips`,
         { method: "GET" }
       )
 

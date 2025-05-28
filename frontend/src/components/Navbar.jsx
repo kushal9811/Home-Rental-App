@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { IoMdMenu } from "react-icons/io"
 import { setLogout } from "../redux/slice/userSlice"
 
+const UPLOADS_BASE = import.meta.env.VITE_API_BASE_URL.replace("/api", "");
+
 const Navbar = () => {
   const user = useSelector((state) => state.user)
   // console.log(user)
@@ -70,7 +72,7 @@ const Navbar = () => {
             <FaUser className="text-slate-600" />
           ) : (
             <img
-              src={`http://localhost:3000/${user.user?.profileImagePath.replace(
+              src={`${UPLOADS_BASE}/${user.user?.profileImagePath.replace(
                 "public",
                 ""
               )}`}
