@@ -1,6 +1,6 @@
 # RentRite
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-blue)](https://home-rental-app-nine.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-blue)](https://home-rental-app-kushals-projects-26a57d55.vercel.app/)
 
 ## Project Overview
 
