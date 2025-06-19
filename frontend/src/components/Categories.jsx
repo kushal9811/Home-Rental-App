@@ -10,10 +10,7 @@ const Categories = () => {
       </h1>
 
       <p className="max-w-3xl text-lg">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque
-        quisquam aut! Provident facere a nostrum, vitae minima aspernatur
-        aliquid magni tempore! Fugiat quo quisquam incidunt est impedit
-        voluptatum ullam.
+        At RentRite, we understand that everyone has a unique idea of the perfect stay. That’s why we offer handpicked rental categories that cater to every lifestyle and travel mood — from beachside retreats and cityscapes to mountain hideaways and desert escapes. Explore our top categories to find homes that match your vibe and make your next trip unforgettable.
       </p>
 
       <div className="flex flex-wrap py-12 justify-center gap-5">
